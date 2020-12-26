@@ -1,0 +1,149 @@
+.device {
+  position: relative;
+  height: 77vh;
+  width: 22vw;
+  top: 8vh;
+  left: 39vw;
+  background: white;
+  border: 10px solid black;
+  border-radius: 2vw;
+}
+
+.device .topBar {
+  position: absolute;
+  top: -1%;
+  left: 30%;
+  width: 40%;
+  height: 4%;
+  background: black;
+  border-radius: 0 0 1vw 1vw;
+}
+
+.device .topBar span:nth-child(1) {
+  position: absolute;
+  right: 15%;
+  width: 0.8vw;
+  height: 1.5vh;
+  top: 24%;
+  background: #4b4b4b;
+  content: "";
+  border-radius: 1vw;
+}
+
+.device .topBar span:nth-child(2) {
+  position: absolute;
+  left: 25%;
+  width: 3.5vw;
+  height: 0.6vh;
+  top: 40%;
+  background: #4b4b4b;
+  content: "";
+  border-radius: 1vw;
+}
+
+.device .chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.device .chat div {
+  height: 100%;
+}
+
+.device .chat div:nth-child(1) {
+  height: 15%;
+}
+
+.device .chat div.chatArea {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  font-size: 1vw;
+  color: white;
+}
+
+.device .chat div.chatArea div {
+  max-width: 60%;
+  max-height: 25%;
+  background: #1fbb7f;
+  margin: 0.8vw;
+  border-radius: 1vw;
+  padding: 1vw;
+}
+
+.device .chat div.messageArea {
+  height: 10%;
+  border: none;
+  background: #ecf0ee;
+}
+
+.device .chat div.messageArea div {
+  width: 100%;
+  transform-origin: 100% 100%;
+  font-size: 1vw;
+}
+
+.device .chat div.messageArea div.done {
+  transform: scaleX(0);
+  font-size: 0vw;
+  transition: all 0.2s ease-in;
+}
+
+.device .chat div:nth-child(4) {
+  height: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.device .chat div:nth-child(4) span {
+  position: relative;
+  width: 10%;
+  height: 25%;
+  font-size: 1.3vw;
+  text-align: center;
+  left: -1%;
+}
+
+.device .chat div:nth-child(4) span#emp {
+  position: relative;
+  width: 6%;
+}
+
+.device .chat div:nth-child(4) span#delete {
+  background-image: url("deletebutton.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: -5%;
+  height: 18%;
+  left: 0.5%;
+}
+
+.device .chat div:nth-child(4) span#up {
+  background-image: url("upbutton.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 14%;
+  top: -5%;
+  left: -2%;
+}
+
+.device .chat div:nth-child(4) span#send {
+  background-image: url("sendbutton.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: -5%;
+  left: 1%;
+}
+
+.device .chat div:nth-child(4) span#space {
+  width: 10%;
+  height: 13%;
+  top: -3%;
+  background: #bdbdbd;
+}
+/*# sourceMappingURL=chatbox.module.css.map */

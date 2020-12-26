@@ -1,0 +1,144 @@
+.device {
+  position: relative;
+  height: 77vh;
+  width: 22vw;
+  top: 8vh;
+  left: 39vw;
+  background: white;
+  border: 10px solid black;
+  border-radius: 2vw;
+
+  .topBar {
+    position: absolute;
+    top: -1%;
+    left: 30%;
+    width: 40%;
+    height: 4%;
+    background: black;
+    border-radius: 0 0 1vw 1vw;
+
+    span:nth-child(1) {
+      position: absolute;
+      right: 15%;
+      width: 0.8vw;
+      height: 1.5vh;
+      top: 24%;
+      background: rgb(75, 75, 75);
+      content: "";
+      border-radius: 1vw;
+    }
+    span:nth-child(2) {
+      position: absolute;
+      left: 25%;
+      width: 3.5vw;
+      height: 0.6vh;
+      top: 40%;
+      background: rgb(75, 75, 75);
+      content: "";
+      border-radius: 1vw;
+    }
+  }
+  .chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    div {
+      // border: 1px solid blue;
+      height: 100%;
+      &:nth-child(1) {
+        height: 15%;
+      }
+
+      &.chatArea {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+        font-size: 1vw;
+        color: white;
+        // text-align: start;
+
+        div {
+          max-width: 60%;
+          max-height: 25%;
+          background: rgb(31, 187, 127);
+          margin: 0.8vw;
+          // border: 2px solid green;
+          border-radius: 1vw;
+          padding: 1vw;
+        }
+      }
+      &.messageArea {
+        height: 10%;
+        border: none;
+        background: rgb(236, 240, 238);
+
+        div {
+          width: 100%;
+          transform-origin: 100% 100%;
+          font-size: 1vw;
+          &.done {
+            transform: scaleX(0);
+            font-size: 0vw;
+            transition: all 0.2s ease-in;
+          }
+        }
+      }
+
+      &:nth-child(4) {
+        height: 40%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        span {
+          //   border: 1px solid yellowgreen;
+          position: relative;
+          width: 10%;
+          height: 25%;
+          font-size: 1.3vw;
+          text-align: center;
+          left: -1%;
+          //   font-weight: bold;
+
+          &#emp {
+            position: relative;
+            width: 6%;
+          }
+          &#delete {
+            background-image: url("deletebutton.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            // width: 5%;
+            top: -5%;
+            height: 18%;
+            left: 0.5%;
+          }
+          &#up {
+            background-image: url("upbutton.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 14%;
+            top: -5%;
+            left: -2%;
+          }
+          &#send {
+            background-image: url("sendbutton.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: -5%;
+            left: 1%;
+          }
+          &#space {
+            // border: 1px solid blue;
+            width: 10%;
+            height: 13%;
+            top: -3%;
+            background: rgb(189, 189, 189);
+          }
+        }
+      }
+    }
+  }
+}

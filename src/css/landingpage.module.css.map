@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,CAAC,CAAC;EACA,UAAU,EAAE,UAAU;CACvB;;AAED,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,OAAkB;CAC/B",
+    "sources": [
+        "../scss/landingpage.module.scss"
+    ],
+    "names": [],
+    "file": "landingpage.module.css"
+}

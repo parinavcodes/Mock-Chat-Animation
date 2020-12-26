@@ -111,7 +111,7 @@
 
 .device .chat div:nth-child(4) span.press {
   animation-name: keyboardPress;
-  animation-duration: 0.5s;
+  animation-duration: 0.1s;
   animation-timing-function: ease-in-out;
   animation-direction: normal;
   animation-iteration-count: 1;

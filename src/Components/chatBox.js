@@ -10,7 +10,10 @@ export default function ChatBox() {
 
   const [messageLength, setMessageLength] = useState(0);
 
+  const messageLengthRef = React.useRef(messageLength);
+
   let Message = (message) => {
+    const textarea = document.querySelector("#messageArea");
     document.querySelector(".Typewriter").classList.add(done);
     setTimeout(() => {
       document.querySelector(".Typewriter").classList.remove(done);
@@ -27,14 +30,66 @@ export default function ChatBox() {
         document.querySelector("#chatArea").appendChild(chatMessageDiv);
       }
     }, 250);
+    messageLengthRef.current = messageLength;
+    console.log(messageLengthRef.current + 1);
+    setMessageLength(messageLengthRef.current + 1);
   };
 
-  // useEffect(() => {
-  //     });
-  // }, []);
-  // text.addEventListener("DOMSubtreeModified", () => {
-  //   console.log(text.innerHTML);
-  // });
+  useEffect(() => {
+    const textarea = document.querySelector("#messageArea");
+    console.log("useeffect");
+
+    textarea.addEventListener("DOMSubtreeModified", () => {
+      console.log(
+        textarea.firstChild.firstChild.innerHTML[
+          textarea.firstChild.firstChild.innerHTML.length - 1
+        ]
+      );
+      if (
+        textarea.firstChild.firstChild.innerHTML[
+          textarea.firstChild.firstChild.innerHTML.length - 1
+        ] !== " " &&
+        textarea.firstChild.firstChild.innerHTML.length > messageLength
+      ) {
+        document
+          .querySelector(
+            `#${textarea.firstChild.firstChild.innerHTML[
+              textarea.firstChild.firstChild.innerHTML.length - 1
+            ].toUpperCase()}`
+          )
+          .classList.add(styles.press);
+        if (
+          textarea.firstChild.firstChild.innerHTML.length > 1 &&
+          textarea.firstChild.firstChild.innerHTML[
+            textarea.firstChild.firstChild.innerHTML.length - 2
+          ] !== " "
+        ) {
+          document
+            .querySelector(
+              `#${textarea.firstChild.firstChild.innerHTML[
+                textarea.firstChild.firstChild.innerHTML.length - 2
+              ].toUpperCase()}`
+            )
+            .classList.remove(styles.press);
+        } else if (
+          textarea.firstChild.firstChild.innerHTML.length > 1 &&
+          textarea.firstChild.firstChild.innerHTML[
+            textarea.firstChild.firstChild.innerHTML.length - 2
+          ] === " "
+        ) {
+          document
+            .querySelector(
+              `#${textarea.firstChild.firstChild.innerHTML[
+                textarea.firstChild.firstChild.innerHTML.length - 3
+              ].toUpperCase()}`
+            )
+            .classList.remove(styles.press);
+        }
+        console.log(messageLengthRef.current);
+      }
+    });
+  }, []);
+
   let keyboard = [
     "Q",
     "W",
@@ -96,39 +151,71 @@ export default function ChatBox() {
               onInit={(typewriter) => {
                 typewriter
                   .changeDelay(50)
-                  .callFunction(() => {
-                    let textarea = document.querySelector("#messageArea");
-                    if (f === 0) {
-                      textarea.addEventListener("DOMSubtreeModified", () => {
-                        console.log(
-                          textarea.firstChild.firstChild.innerHTML[
-                            textarea.firstChild.firstChild.innerHTML.length - 1
-                          ]
-                        );
-                        if (
-                          textarea.firstChild.firstChild.innerHTML[
-                            textarea.firstChild.firstChild.innerHTML.length - 1
-                          ] !== " " &&
-                          textarea.firstChild.firstChild.innerHTML.length >
-                            messageLength
-                        ) {
-                          document
-                            .querySelector(
-                              `#${textarea.firstChild.firstChild.innerHTML[
-                                textarea.firstChild.firstChild.innerHTML
-                                  .length - 1
-                              ].toUpperCase()}`
-                            )
-                            .classList.add(styles.press);
+                  // .callFunction(() => {
+                  //   let textarea = document.querySelector("#messageArea");
+                  //   if (f === 0) {
+                  //     textarea.addEventListener("DOMSubtreeModified", () => {
+                  //       console.log(
+                  //         textarea.firstChild.firstChild.innerHTML[
+                  //           textarea.firstChild.firstChild.innerHTML.length - 1
+                  //         ]
+                  //       );
+                  //       if (
+                  //         textarea.firstChild.firstChild.innerHTML[
+                  //           textarea.firstChild.firstChild.innerHTML.length - 1
+                  //         ] !== " " &&
+                  //         textarea.firstChild.firstChild.innerHTML.length >
+                  //           messageLength
+                  //       ) {
+                  //         document
+                  //           .querySelector(
+                  //             `#${textarea.firstChild.firstChild.innerHTML[
+                  //               textarea.firstChild.firstChild.innerHTML
+                  //                 .length - 1
+                  //             ].toUpperCase()}`
+                  //           )
+                  //           .classList.add(styles.press);
+                  //         if (
+                  //           textarea.firstChild.firstChild.innerHTML.length >
+                  //             1 &&
+                  //           textarea.firstChild.firstChild.innerHTML[
+                  //             textarea.firstChild.firstChild.innerHTML.length -
+                  //               2
+                  //           ] !== " "
+                  //         ) {
+                  //           document
+                  //             .querySelector(
+                  //               `#${textarea.firstChild.firstChild.innerHTML[
+                  //                 textarea.firstChild.firstChild.innerHTML
+                  //                   .length - 2
+                  //               ].toUpperCase()}`
+                  //             )
+                  //             .classList.remove(styles.press);
+                  //         } else if (
+                  //           textarea.firstChild.firstChild.innerHTML.length >
+                  //             1 &&
+                  //           textarea.firstChild.firstChild.innerHTML[
+                  //             textarea.firstChild.firstChild.innerHTML.length -
+                  //               2
+                  //           ] === " "
+                  //         ) {
+                  //           document
+                  //             .querySelector(
+                  //               `#${textarea.firstChild.firstChild.innerHTML[
+                  //                 textarea.firstChild.firstChild.innerHTML
+                  //                   .length - 3
+                  //               ].toUpperCase()}`
+                  //             )
+                  //             .classList.remove(styles.press);
+                  //         }
+                  //         console.log(messageLength);
 
-                          setMessageLength(
-                            textarea.firstChild.firstChild.innerHTML.length
-                          );
-                        }
-                      });
-                      f = 1;
-                    }
-                  })
+                  //         setMessageLength(messageLength + 1);
+                  //       }
+                  //     });
+                  //     f = 1;
+                  //   }
+                  // })
                   .typeString(messages[0])
                   .callFunction(() => {
                     Message(messages[0]);

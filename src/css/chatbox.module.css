@@ -109,6 +109,14 @@
   left: -1%;
 }
 
+.device .chat div:nth-child(4) span.press {
+  animation-name: keyboardPress;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+}
+
 .device .chat div:nth-child(4) span#emp {
   position: relative;
   width: 6%;
@@ -145,5 +153,17 @@
   height: 13%;
   top: -3%;
   background: #bdbdbd;
+}
+
+@keyframes keyboardPress {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: grey;
+  }
+  100% {
+    background-color: transparent;
+  }
 }
 /*# sourceMappingURL=chatbox.module.css.map */

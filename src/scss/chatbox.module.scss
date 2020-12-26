@@ -102,6 +102,16 @@
           left: -1%;
           //   font-weight: bold;
 
+          &.press {
+            // background-color: grey;
+            // transition: background-color 0.1s ease-in;
+            animation-name: keyboardPress;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-direction: normal;
+            animation-iteration-count: 1;
+          }
+
           &#emp {
             position: relative;
             width: 6%;
@@ -140,5 +150,17 @@
         }
       }
     }
+  }
+}
+
+@keyframes keyboardPress {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: grey;
+  }
+  100% {
+    background-color: transparent;
   }
 }

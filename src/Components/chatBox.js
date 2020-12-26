@@ -95,7 +95,7 @@ export default function ChatBox() {
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
-                  .changeDelay(5)
+                  .changeDelay(50)
                   .callFunction(() => {
                     let textarea = document.querySelector("#messageArea");
                     if (f === 0) {
@@ -112,12 +112,15 @@ export default function ChatBox() {
                           textarea.firstChild.firstChild.innerHTML.length >
                             messageLength
                         ) {
-                          document.querySelector(
-                            `#${textarea.firstChild.firstChild.innerHTML[
-                              textarea.firstChild.firstChild.innerHTML.length -
-                                1
-                            ].toUpperCase()}`
-                          ).style.backgroundColor = "black";
+                          document
+                            .querySelector(
+                              `#${textarea.firstChild.firstChild.innerHTML[
+                                textarea.firstChild.firstChild.innerHTML
+                                  .length - 1
+                              ].toUpperCase()}`
+                            )
+                            .classList.add(styles.press);
+
                           setMessageLength(
                             textarea.firstChild.firstChild.innerHTML.length
                           );

@@ -8,7 +8,7 @@ export default function ChatBox() {
   const [typing, setTyping] = useState(0);
   const [messageitr, setMessageItr] = useState(0);
 
-  const [messageText, setMessageText] = useState("");
+  const [messageLength, setMessageLength] = useState(0);
 
   let Message = (message) => {
     document.querySelector(".Typewriter").classList.add(done);
@@ -108,7 +108,9 @@ export default function ChatBox() {
                         if (
                           textarea.firstChild.firstChild.innerHTML[
                             textarea.firstChild.firstChild.innerHTML.length - 1
-                          ] !== " "
+                          ] !== " " &&
+                          textarea.firstChild.firstChild.innerHTML.length >
+                            messageLength
                         ) {
                           document.querySelector(
                             `#${textarea.firstChild.firstChild.innerHTML[
@@ -116,6 +118,9 @@ export default function ChatBox() {
                                 1
                             ].toUpperCase()}`
                           ).style.backgroundColor = "black";
+                          setMessageLength(
+                            textarea.firstChild.firstChild.innerHTML.length
+                          );
                         }
                       });
                       f = 1;
